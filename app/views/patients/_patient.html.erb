@@ -35,7 +35,7 @@
       <%= f.text_field :weight, value: @p.last.weight, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">
-      <b><%= f.label :m_stat, "Marital Status", class:"form-label" %></b>
+      <b><%= f.label :m_stat, "Marital Status", class:"form-label" %></b><br>
       <%= f.select :m_stat, Patient::MARITAL_STATUS, value: @p.last.m_stat, class: "form-control form-control-sm block" %>
     </div>
     <div class="col-md-4">
@@ -145,7 +145,7 @@
       <%= f.text_field :diag_where, value: @p.last.diag_where, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">
-      <b><%= f.label :aq_b4, "Acupunture before?", class:"form-label" %></b>
+      <b><%= f.label :aq_b4, "Acupunture before?", class:"form-label" %></b><br>
       <%= f.select :aq_b4, Patient::ACU_BEFORE, value: @p.last.aq_b4, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">
@@ -163,7 +163,7 @@
       <b><%= f.label :di_list, "Major Health Issues:", class:"form-label" %></b><br>
       
       <% Patient::HEALTH.each do |h| %>
-        <%= f.check_box :di_list, { multiple: true, checked: f.object.di_list&.include?(f.to_s)}, h, nil %>
+        <%= f.check_box :di_list, { multiple: true, checked: f.object.di_list&.include?(h.to_s)}, h, nil %>
         <%= f.label h %>
       <% end %>
     </div>

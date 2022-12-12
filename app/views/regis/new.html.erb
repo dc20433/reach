@@ -1,9 +1,5 @@
-<h1>New regi</h1>
+<%# if (current_user && current_user.manager?) || (current_user && current_user.admin?) %>
 
-<%= render "form", regi: @regi %>
-
-<br>
-
-<div>
-  <%= link_to "Back to regis", regis_path %>
-</div>
+  <%= render "display", regi:@regi %>
+  
+<%# end %>

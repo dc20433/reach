@@ -44,7 +44,7 @@
       <%= f.text_field :weight, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">
-      <b><%= f.label :m_stat, "Marital Status", class:"form-label" %></b>
+      <b><%= f.label :m_stat, "Marital Status", class:"form-label" %></b><br>
       <%= f.select :m_stat, Patient::MARITAL_STATUS, class: "form-select" %>
     </div>
     <div class="col-md-4">
@@ -154,7 +154,7 @@
       <%= f.text_field :diag_where, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">
-      <b><%= f.label :aq_b4, "Acupunture before?", class:"form-label" %></b>
+      <b><%= f.label :aq_b4, "Acupunture before?", class:"form-label" %></b><br>
       <%= f.select :aq_b4, Patient::ACU_BEFORE, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">

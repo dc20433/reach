@@ -1,10 +1,5 @@
-<p style="color: green"><%= notice %></p>
+<%# if (current_user && current_user.manager?) || (current_user && current_user.admin?) %>
 
-<%= render @regi %>
-
-<div>
-  <%= link_to "Edit this regi", edit_regi_path(@regi) %> |
-  <%= link_to "Back to regis", regis_path %>
-
-  <%= button_to "Destroy this regi", @regi, method: :delete %>
-</div>
+  <%= render "display" %>
+  
+<%# end %>

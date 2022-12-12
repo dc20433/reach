@@ -73,3 +73,5 @@ end
 
 gem "nested_scaffold"
 gem "devise"
+gem 'ransack'
+gem 'local_time'

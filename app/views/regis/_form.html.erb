@@ -11,32 +11,56 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+  <div class="row mb-1">
+    <div class="col col-md-3 pt-1 mt-1">
+      <b><%= form.label :last_name, "Last Name" %></b>
+    </div>
+    <div class="col col-md-9">
+      <%= form.text_field :last_name, autofocus: true, class:"form-control form-control-sm border-primary" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  <div class="row mb-1">
+    <div class="col col-md-3 pt-1 mt-1">
+      <b><%= form.label :first_name, "First Name" %></b>
+    </div>
+    <div class="col col-md-9">
+      <%= form.text_field :first_name, class:"form-control form-control-sm border-primary" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :init, style: "display: block" %>
-    <%= form.text_field :init %>
+  <div class="row mb-1">
+    <div class="col col-md-3 pt-1 mt-1">
+      <b><%= form.label :init, "Middle Inital" %></b>
+    </div>
+    <div class="col col-md-9">
+      <%= form.text_field :init, class:"form-control form-control-sm border-primary" %>
+    </div>
   </div>
 
+  <div class="row input-group mb-1">
+    <div class="col col-md-3 pt-1 mt-1">
+      <b><%= form.label :gender, "Gender" %></b>
+    </div>
+    <div class="col col-md-9">
+      <%= form.select :gender, Regi::GENDER_OPTIONS, class:"form-control form-control-sm border-primary" %>
+    </div>
+  </div>
+ 
+ <div class="row mb-1">
+    <div class="col col-md-3 pt-1 mt-1">
+     <b><%= form.label :dob, "Date of Birth" %></b>
+    </div>
+    <div class="col col-md-9">
+      <%= form.date_field :dob, placeholder: "MM/DD/YYYY", class:"form-control form-control-sm border-primary" %>
+    </div>
+  </div>
   <div>
-    <%= form.label :gender, style: "display: block" %>
-    <%= form.text_field :gender %>
+    <div class="btn-group" role="group"> 
+      <%= form.submit "Submit", class: "btn btn-sm btn-primary m-2 rounded-pill" %>
+<% end %>      
+      <%= button_to "Delete", @regi, method: :delete, class:"btn btn-sm btn-danger m-2 rounded-pill" %>
+      <%= link_to "Return", regis_path, class:"btn btn-sm btn-success m-2 rounded-pill" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :dob, style: "display: block" %>
-    <%= form.date_field :dob %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

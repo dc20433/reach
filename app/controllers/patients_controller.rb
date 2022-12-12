@@ -25,7 +25,7 @@ class PatientsController < ApplicationController
     @patient = @regi.patients.build(patient_params)
 
     if @patient.save
-      redirect_to([@patient.regi, @patient], notice: 'Patient was successfully created.')
+      redirect_to(regi_patients_path(@regi,@patient), notice: 'Patient Record created.')
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class PatientsController < ApplicationController
   # PUT regis/1/patients/1
   def update
     if @patient.update(patient_params)
-      redirect_to([@patient.regi, @patient], notice: 'Patient was successfully updated.')
+      redirect_to(regi_patients_path(@regi,@patient), notice: 'Patient Record created.')
     else
       render action: 'edit'
     end

@@ -25,7 +25,7 @@ class ChartsController < ApplicationController
     @chart = @regi.charts.build(chart_params)
 
     if @chart.save
-      redirect_to([@chart.regi, @chart], notice: 'Chart was successfully created.')
+      redirect_to regi_charts_path(@regi,@chart), notice: 'Patient Chart created.'
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class ChartsController < ApplicationController
   # PUT regis/1/charts/1
   def update
     if @chart.update(chart_params)
-      redirect_to([@chart.regi, @chart], notice: 'Chart was successfully updated.')
+      redirect_to regi_charts_path(@regi,@chart), notice: 'Patient Chart created.'
     else
       render action: 'edit'
     end
