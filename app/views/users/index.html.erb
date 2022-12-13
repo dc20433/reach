@@ -1,4 +1,4 @@
-<%# if current_user && current_user.admin? %>
+<% if current_user && current_user.Admin? %>
 
   <h1 class="text-center">Permitted Users</h1>
 
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @users.order('current_sign_in_at DESC').each do |user| %>
+      <% @users.order('role DESC', 'current_sign_in_at DESC').each do |user| %>
       <tr>
         <td><%= link_to_unless_current user.email, user_path(user.id) %></td>
         <td><%= user.role %></td>
@@ -26,4 +26,4 @@
       <% end %>
     </tbody>
   </table>
-<%# end %>
+<% end %>
