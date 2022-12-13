@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to users_path, notice: "#{@user.name} is successfully signed up."
+      redirect_to users_path, notice: "#{@user.email}s successfully signed up."
     else
       render :new, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :user_name, :email, :role, :password, :passowrd_confirmation)
+    params.require(:user).permit(:email, :role, :password, :passowrd_confirmation)
   end
 end

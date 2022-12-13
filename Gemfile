@@ -74,4 +74,5 @@ end
 gem "nested_scaffold"
 gem "devise"
 gem 'ransack'
-gem 'local_time'
+
+gem "local_time", "~> 2.1"

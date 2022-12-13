@@ -236,7 +236,7 @@ DEPENDENCIES
   devise
   importmap-rails
   jbuilder
-  local_time
+  local_time (~> 2.1)
   nested_scaffold
   pg (~> 1.1)
   puma (~> 5.0)

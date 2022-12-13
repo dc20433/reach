@@ -3,4 +3,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
+
+  enum role: [:Patient, :Manager, :Admin]
+  after_initialize :set_default_role, :if => :new_record?
+  def set_default_role
+    self.role ||= :patient
+  end
+  
+  USER_ROLE = 
+  [
+    ['Patient', 'Patient'],
+    ['Manager', 'Manager'],
+    ['Admin', 'Admin'],
+  ]
+  
 end

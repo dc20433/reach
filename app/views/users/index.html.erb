@@ -1,0 +1,29 @@
+<%# if current_user && current_user.admin? %>
+
+  <h1 class="text-center">Permitted Users</h1>
+
+  <table class="table table-sm table-striped table-hover mx-auto mt-1">
+    <thead class="table-primary">
+      <tr>
+        <th class="col col-md-3">Sign in Email</th>
+        <th class="col col-md-2">Role</th>
+        <th class="col col-md-2">Signin?</th>
+        <th class="col col-md-2">Sign-in Time</th>
+        <th class="col col-md-2">Last Sign-in</th>
+        <th class="col col-md-1">Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.order('current_sign_in_at DESC').each do |user| %>
+      <tr>
+        <td><%= link_to_unless_current user.email, user_path(user.id) %></td>
+        <td><%= user.role %></td>
+        <td><%= (user.current_sign_in_at - user.last_sign_in_at) == 0 ? "-" : "Yes" %></td>
+        <td><%= (user.current_sign_in_at - 5*3600).strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= (user.last_sign_in_at - 5*3600).strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= user.sign_in_count %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%# end %>

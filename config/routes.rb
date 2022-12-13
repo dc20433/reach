@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  resources :users
+
   get 'consent' => 'sites#consent'
   get 'insurance' => 'sites#insurance'
+  
   
   root 'sites#home'
 end
