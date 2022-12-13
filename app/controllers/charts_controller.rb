@@ -25,7 +25,7 @@ class ChartsController < ApplicationController
     @chart = @regi.charts.build(chart_params)
 
     if @chart.save
-      redirect_to regi_charts_path(@regi,@chart), notice: 'Patient Chart created.'
+      redirect_to regi_charts_path(@regi,@chart), notice: 'Patient Chart created...'
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class ChartsController < ApplicationController
   # PUT regis/1/charts/1
   def update
     if @chart.update(chart_params)
-      redirect_to regi_charts_path(@regi,@chart), notice: 'Patient Chart created.'
+      redirect_to regi_charts_path(@regi,@chart), notice: 'Patient Chart updated...'
     else
       render action: 'edit'
     end
@@ -43,8 +43,7 @@ class ChartsController < ApplicationController
   # DELETE regis/1/charts/1
   def destroy
     @chart.destroy
-
-    redirect_to regi_charts_url(@regi)
+    redirect_to regi_charts_path(@regi), notice: "Chart deleted..."
   end
 
   private

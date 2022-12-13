@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary pt-1 pb-1">
+  <div class="container-fluid">
+    <%= link_to "Home", root_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <%# if current_user %>
+        <% if user_signed_in? %>
+          <% link_to "| Insurance |", "#", class:"nav-link active" %>
+          <% link_to "| Consent Form |", consent_path, class:"nav-link active" %>
+        <% end %>
+
+        <%# if current_user %>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%# link_to "|log out|", reset_path, class:"nav-link active" %>
+            <%= link_to "|Log out|", destroy_user_session_path, class:"nav-link active", data: { turbo_method: :delete } %>
+            <%# link_to "|Log out|", destroy_user_session_path, class:"nav-link active", method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "|Log in|", new_user_session_path, class:"nav-link active" %>
+          </li>
+        <% end %>  
+
+        <%# if (current_user && current_user.admin?) || (current_user && current_user.manager?)  %>
+          <li class="nav-item">
+            <%= link_to "|Patients|", regis_path, class:"nav-link active" %>
+          </li>
+        <%# end %>
+
+        <%# if current_user && current_user.admin? %>
+          <li class="nav-item">
+            <%# link_to "|Users|", users_path, class:"nav-link active" %>
+          </li> 
+          <li class="nav-item">
+            <%= link_to "|Sign up|", new_user_registration_path, class:"nav-link active" %>
+          </li>
+        <%# end %>
+      </ul>
+
+
+      <li class="d-flex">
+        <%# if current_user %>
+        <%# if user_signed_in? %>
+          <p class="text-white bg-dark p-4 pt-0 pb-1 rounded-pill"><%# current_user.user_name %> : <%#current_user.role %></p>
+        <%# end %>
+      </li>
+    </div>
+  </div>
+</nav>

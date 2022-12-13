@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resources :charts
     resources :patients
   end
-   
+  
+  devise_for :users
+
   get 'consent' => 'sites#consent'
   get 'insurance' => 'sites#insurance'
   

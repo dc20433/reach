@@ -1,4 +1,4 @@
-<% @p = Patient.where(regi_id: params[:regi_id]).order('v_date DESC') %>
+<% @p = Patient.where(regi_id: params[:regi_id]).order('v_date ASC') %>
 
 <%= form_with(model: [@regi,@patient]) do |f| %>
 

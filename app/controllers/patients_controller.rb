@@ -25,7 +25,7 @@ class PatientsController < ApplicationController
     @patient = @regi.patients.build(patient_params)
 
     if @patient.save
-      redirect_to(regi_patients_path(@regi,@patient), notice: 'Patient Record created.')
+      redirect_to regi_patients_path(@regi), notice:'Patient Record created...'
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class PatientsController < ApplicationController
   # PUT regis/1/patients/1
   def update
     if @patient.update(patient_params)
-      redirect_to(regi_patients_path(@regi,@patient), notice: 'Patient Record created.')
+      redirect_to regi_patients_path(@regi), notice:'Patient Record updated...'
     else
       render action: 'edit'
     end
@@ -43,8 +43,7 @@ class PatientsController < ApplicationController
   # DELETE regis/1/patients/1
   def destroy
     @patient.destroy
-
-    redirect_to regi_patients_url(@regi)
+    redirect_to regi_patients_path(@regi), notice: "Record deleted..."
   end
 
   private
@@ -59,6 +58,6 @@ class PatientsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def patient_params
-      params.require(:patient).permit(:v_date, :m_stat, :weight, :height, :street, :city, :state, :zip, :cell, :home, :work, :email, :referred, :com1, :com2, :com3, :d_onset, :pain_scale, :d_lost, :d_restd, :c_onset, :better, :worse, :o_drs, :o_drs_when, :pcp_name, :hosp, :h_when, :diag_given, :diag_where, :aq_b4, :aqrist, :aq_where, :o_dis, :inj_surg, :med_taken, :alcohol, :tobacco, :last_prd, :preg, :preg_wks, :regi_id, di_list:[])
+      params.require(:patient).permit(:v_date, :m_stat, :weight, :height, :street, :city, :state, :zip, :cell, :home, :work, :email, :referred, :com1, :com2, :com3, :d_onset, :pain_scale, :d_lost, :d_restd, :c_onset, :better, :worse, :o_drs, :o_drs_when, :pcp_name, :hosp, :h_when, :diag_given, :diag_where, :aq_b4, :aqrist, :aq_where, :di_list, :o_dis, :inj_surg, :med_taken, :alcohol, :tobacco, :last_prd, :preg, :preg_wks, :regi_id)
     end
 end

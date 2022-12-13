@@ -1,6 +1,6 @@
 class Regi < ApplicationRecord
-  has_many :patients
-  has_many :charts
+  has_many :patients, dependent: :destroy
+  has_many :charts, dependent: :destroy
 
   GENDER_OPTIONS = [
     ['Select', ''],

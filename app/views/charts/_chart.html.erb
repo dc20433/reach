@@ -1,4 +1,4 @@
-<% @c = Chart.where(regi_id: params[:regi_id]).order('t_date DESC') %>
+<% @c = Chart.where(regi_id: params[:regi_id]).order('t_date ASC') %>
 
 <%= form_with(model: [@regi,@chart]) do |f| %>
   

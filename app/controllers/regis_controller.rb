@@ -23,39 +23,26 @@ class RegisController < ApplicationController
   # POST /regis or /regis.json
   def create
     @regi = Regi.new(regi_params)
-
-    respond_to do |format|
-      if @regi.save
-        format.html { redirect_to regi_url(@regi), notice: "Regi was successfully created." }
-        format.json { render :show, status: :created, location: @regi }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @regi.errors, status: :unprocessable_entity }
-      end
+    if @regi.save
+      redirect_to regis_path, notice: "Patient Registration created..."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /regis/1 or /regis/1.json
   def update
-    respond_to do |format|
-      if @regi.update(regi_params)
-        format.html { redirect_to regi_url(@regi), notice: "Regi was successfully updated." }
-        format.json { render :show, status: :ok, location: @regi }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @regi.errors, status: :unprocessable_entity }
-      end
+    if @regi.update regi_params
+      redirect_to regis_path, notice: "Patient Registration updated..."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /regis/1 or /regis/1.json
   def destroy
     @regi.destroy
-
-    respond_to do |format|
-      format.html { redirect_to regis_url, notice: "Regi was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to regis_path, notice: "Patient Registration, records and charts all deleted..." 
   end
 
   private
