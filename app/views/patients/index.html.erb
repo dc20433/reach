@@ -1,4 +1,4 @@
-<%# if (current_user && current_user.manager?) || (current_user && current_user.admin?) %>
+<% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
 
   <h1 class="text-center">Patient Record</h1>
   <%= render 'layouts/identifier' %>
@@ -16,6 +16,7 @@
         <th>Onset/Pain</th>
         <th>PCP</th>
         <th>Health History</th>
+        <th>Med_Taken</th>
         <th></th>
       </tr>
     </thead>
@@ -40,8 +41,9 @@
             <%= patient.weight %>
           </td>
           <td>
-            <%= patient.com1 %><%= ', ' if patient.com2? %>
-            <%= patient.com2 %><%= ', ' if patient.com3? %>
+            <%= '1.' if patient.com1? %>
+            <%= patient.com1 %><%= ', 2.' if patient.com2? %>
+            <%= patient.com2 %><%= ', 3.' if patient.com3? %>
             <%= patient.com3 %>
           </td>
           <td>
@@ -54,10 +56,10 @@
             <%= patient.o_dis %><%= ', ' if patient.inj_surg? %>
             <%= patient.inj_surg %><%= ', Preg' if patient.preg == 'Yes' %>
           </td>
-          <td><% patient.regi %></td>
+          <td><%= patient.med_taken %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-<%# end %>
+<% end %>
