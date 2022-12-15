@@ -199,7 +199,7 @@
       <%= f.date_field :last_prd, value: @p.last.last_prd, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">
-      <b><%= f.label :preg, "Are you pregnant?", class:"form-label" %></b>
+      <b><%= f.label :preg, "Are you pregnant?", class:"form-label" %></b><br>
       <%= f.select :preg, Patient::PREG, value: @p.last.preg, class: "form-control form-control-sm border-primary" %>
     </div>
     <div class="col-md-2">
