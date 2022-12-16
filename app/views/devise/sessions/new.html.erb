@@ -1,30 +1,9 @@
-<%# image_tag('assets/image/.jpg', style: "height: 30px; width: 30px") %>
-<style>
-.screen {
-  background-image: url('pine_trees.jpg');
-  background-size: cover;
-  min-height: 100vh;
-  position: relative;
-  color: black;
-  Text-shadow: 4px 4px 4px rgba(0,0,0,.2);
-}
-h6 {
-  font-size: 3.3rem;
-  color: red;
-}
-.color-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-</style>
-
 <div 
   class="screen"
   style="background-image: url(<%= asset_path 'pine_trees.jpg' %> );">
   <div class="color-overlay d-flex justify-content-center mt-5 pt-5">
     
-    <div class="mx-auto mt-3">
+    <div class="card mt-3 mx-auto border-primary" style="width: 33rem;">
         <div class="card shadow border-dark">
           <div class="card-header">
             <h2 class="card-title text-center">Log in</h2>
