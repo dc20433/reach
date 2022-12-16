@@ -14,7 +14,11 @@ class PatientsController < ApplicationController
 
   # GET regis/1/patients/new
   def new
-    @patient = @regi.patients.build
+    if defined?(Patient.where(regi_id: params[:regi_id]).last.id)
+      @patient = @regi.patients.order('v_date ASC').last.dup
+    else
+      @patient = @regi.patients.build
+    end
   end
 
   # GET regis/1/patients/1/edit

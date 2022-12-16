@@ -14,7 +14,11 @@ class ChartsController < ApplicationController
 
   # GET regis/1/charts/new
   def new
-    @chart = @regi.charts.build
+    if defined?(Chart.where(regi_id: params[:regi_id]).last.id)
+      @chart = @regi.charts.order('t_date ASC').last.dup
+    else 
+      @chart = @regi.charts.build
+    end
   end
 
   # GET regis/1/charts/1/edit
