@@ -25,7 +25,7 @@ class RegisController < ApplicationController
   def create
     @regi = Regi.new(regi_params)
     if @regi.save
-      redirect_to regis_path, notice: "Patient Registration created..."
+      redirect_to regis_path, notice: "New Patient Registered..."
     else
       render :new, status: :unprocessable_entity
     end
