@@ -1,45 +1,43 @@
 <% if current_user && current_user.Admin? %>
+  <div 
+    class="screen"
+    style="background-image: url(<%= asset_path 'pine_trees.jpg' %> );">
+    <div class="color-overlay d-flex justify-content-center">  
+      <div class="card mt-3 mx-auto border-primary" style="width: 40rem;">
 
-<div 
-  class="screen"
-  style="background-image: url(<%= asset_path 'pine_trees.jpg' %> );">
-  <div class="color-overlay d-flex justify-content-center">  
-    <div class="card mt-3 mx-auto border-primary" style="width: 40rem;">
-
-    <%# <div class="mx-auto mt-3"> %>
-        <div class="card shadow border-dark">
-          <div class="card-header">
-            <h2 class="card-title text-center">Permitted Users</h2>
-          </div>
-          <div class="card-body">
-            <table class="table table-sm table-striped table-hover mx-auto mt-1" style="max-width: 800px">
-              <thead class="table-primary">
-                <tr>
-                  <th>Sign in Email</th>
-                  <th>Role</th>
-                  <th>Sign-in Time</th>
-                  <th>Last Sign-in</th>
-                  <th>Count</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @users.order('role ASC', 'current_sign_in_at DESC').each do |user| %>
-                <tr>
-                  <td><%= link_to_unless_current user.email, user_path(user.id) %></td>
-                  <td><%= user.role %></td>
-                  <td><%= (user.current_sign_in_at - 5*3600).strftime("%H:%M %m-%d-%Y") %></td>
-                  <td><%= (user.last_sign_in_at - 5*3600).strftime("%H:%M %m-%d-%Y") %></td>
-                  <td><%= user.sign_in_count %></td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
+      <%# <div class="mx-auto mt-3"> %>
+          <div class="card shadow border-dark">
+            <div class="card-header">
+              <h2 class="card-title text-center">Permitted Users</h2>
+            </div>
+            <div class="card-body">
+              <table class="table table-sm table-striped table-hover mx-auto mt-1" style="max-width: 800px">
+                <thead class="table-primary">
+                  <tr>
+                    <th>Sign in Email</th>
+                    <th>Role</th>
+                    <th>Sign-in Time</th>
+                    <th>Last Sign-in</th>
+                    <th>Count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @users.order('role ASC', 'current_sign_in_at DESC').each do |user| %>
+                  <tr>
+                    <td><%= link_to_unless_current user.email, user_path(user.id) %></td>
+                    <td><%= user.role %></td>
+                    <td><%= (user.current_sign_in_at - 5*3600).strftime("%H:%M %m-%d-%Y") %></td>
+                    <td><%= (user.last_sign_in_at - 5*3600).strftime("%H:%M %m-%d-%Y") %></td>
+                    <td><%= user.sign_in_count %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+    </div>
   </div>
-</div>
-
 <% end %>
 
   

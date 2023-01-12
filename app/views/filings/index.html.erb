@@ -1,0 +1,43 @@
+<% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
+  <h1 class="text-center">Patient Files</h1>
+  <%= render 'layouts/identifier' %>
+
+  <%= link_to 'New Filing', new_regi_filing_path(params[:regi_id]), class: "btn btn-sm btn-outline-dark m-1 rounded-pill" %>
+  <%= link_to 'Patient Record', regi_patients_path, class:"btn btn-sm btn-outline-primary m-1 rounded-pill" %>
+  <%= link_to 'Patient Charts', regi_charts_path, class:"btn btn-sm btn-outline-info m-1 rounded-pill" %>
+
+  <table class="table table-sm table-striped table-hover mt-1">
+    <thead class="table-info">
+      <tr>
+        <th style="width:110px">Uploaded on</th>
+        <th>File Title</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th style="width:252px"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @regi.filings.order("u_date DESC").each do |filing| %>
+        <tr>
+          <td><%= filing.u_date %></td>
+          <td><%= filing.title %></td>
+          <td><%= filing.describe %></td>
+          <td>
+            <% if filing.image.attached? && filing.image.image? %>
+              <%= image_tag filing.image, height: "25px" %>
+            <% else %>
+              <%= 'PDF' %>
+            <% end %>
+          </td>
+          <td>
+            <div class="btn-group" role="group">
+            <%= link_to 'View File', filing.image, class: "btn btn-sm btn-success ms-2 me-2 rounded-pill" %>
+            <%= link_to 'Change', edit_regi_filing_path(@regi,filing), class: "btn btn-sm btn-warning ms-2 me-2 rounded-pill" %>
+            <%= button_to "Delete", [@regi,filing], method: :delete, class:"btn btn-sm btn-danger ms-2 me-2 rounded-pill", form: { data: { turbo_confirm: "Are you sure?" } } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

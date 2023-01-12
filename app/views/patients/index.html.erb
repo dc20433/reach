@@ -1,10 +1,9 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
-
   <h1 class="text-center">Patient Record</h1>
   <%= render 'layouts/identifier' %>
-
   <%= link_to 'New Record', new_regi_patient_path, class:'btn btn-sm btn-outline-dark m-1 rounded-pill' %>
-  <%= link_to 'Patient Charts', regi_charts_path, class:"btn btn-sm btn-outline-info m-1 rounded-pill" %>
+  <%= link_to 'Patient Charts', regi_charts_path, class:"btn btn-sm btn-outline-primary m-1 rounded-pill" %>
+  <%= link_to 'Patient Files', regi_filings_path, class:"btn btn-sm btn-outline-info m-1 rounded-pill" %>
 
   <table class="table table-sm table-striped table-hover mt-1">
     <thead class="table-success">
@@ -16,7 +15,7 @@
         <th>Onset/Pain</th>
         <th>PCP</th>
         <th>Health History</th>
-        <th>Med_Taken</th>
+        <th style="width:115px">Meds Taken</th>
       </tr>
     </thead>
     </tbody>
@@ -60,5 +59,4 @@
       <% end %>
     </tbody>
   </table>
-
 <% end %>

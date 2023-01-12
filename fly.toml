@@ -49,3 +49,8 @@ processes = []
 [[statics]]
   guest_path = "/app/public"
   url_prefix = "/"
+
+[mounts]
+  source="aq2_data"
+  destination="/data"
+

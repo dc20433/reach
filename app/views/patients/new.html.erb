@@ -1,11 +1,5 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
-
   <h1 class="text-center">New Record</h1>
   <%= render 'layouts/identifier' %>
-  <%# if defined?(Patient.where(regi_id: params[:regi_id]).last.id) %>
-    <%#= render 'patient' %>
-  <%# else %>
     <%= render 'form' %>
-  <%# end %>
-  
 <% end %>

@@ -73,6 +73,7 @@ end
 
 gem "nested_scaffold"
 gem "devise"
-gem 'ransack'
+gem "ransack"
 
 gem "local_time", "~> 2.1"
+gem "image_processing", "~> 1.2"
