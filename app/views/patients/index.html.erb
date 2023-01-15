@@ -1,5 +1,5 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
-  <h1 class="text-center">Patient Record</h1>
+  <h1 class="text-center">Patient Records</h1>
   <%= render 'layouts/identifier' %>
   <%= link_to 'New Record', new_regi_patient_path, class:'btn btn-sm btn-outline-dark m-1 rounded-pill' %>
   <%= link_to 'Patient Charts', regi_charts_path, class:"btn btn-sm btn-outline-primary m-1 rounded-pill" %>

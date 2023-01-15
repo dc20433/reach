@@ -22,7 +22,7 @@
                   <th>M. Initial</th>
                   <th>Gender</th>
                   <th>Date of Birth</th>
-                  <th style="width:195px"></th>
+                  <th style="width:202px"></th>
                 </tr>
               </thead>
             <% @regis.order('last_name ASC').each do |regi| %>
@@ -36,7 +36,7 @@
                 <td>
                 <%= link_to 'Records', regi_patients_path(regi.id), class: "btn btn-outline-primary btn-sm rounded-pill" %>
                 <%= link_to 'Charts', regi_charts_path(regi.id), class: "btn btn-outline-success btn-sm rounded-pill" %>
-                <%= link_to 'Files', regi_filings_path(regi.id), class: "btn btn-outline-success btn-sm rounded-pill" %>
+                <%= link_to 'Files', regi_filings_path(regi.id), class: "btn btn-outline-success btn-sm ps-3 pe-3 rounded-pill" %>
                 </td>
               </tr>
               <% end %>
