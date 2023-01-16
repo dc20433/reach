@@ -11,22 +11,20 @@
     <thead class="table-info">
       <tr>
         <th style="width:105px">Dated on</th>
-        <th>S.O.A.P.</th>
-        <th>Acupuncture针灸</th>
-        <th>Medicines中药</th>
-        <th>Formulae方剂</th>
-        <th>Other其它</th>
+        <th style="width:150px">Subjective</th>
+        <th>Objective</th>
+        <th>Assessment</th>
+        <th style="width: 150px">Plan</th>
       </tr>
     </thead>
     </tbody>
       <% @regi.charts.order("t_date DESC").each do |chart| %>
         <tr style="height:15px">
           <td><%= link_to chart.t_date, regi_chart_path(@regi,chart)  %></td>
-          <td style="overflow: hidden"><%= chart.soap %></td>
-          <td><%= chart.aq_list %></td>
-          <td><%= chart.c_med_list %></td>
-          <td><%= chart.c_for_list %></td>
-          <td><%= chart.o_treats %></td>
+          <td><%= chart.subj %></td>
+          <td><%= chart.obj %></td>
+          <td><%= chart.assess %></td>
+          <td><%= chart.plan %></td>
         </tr>
       <% end %>
     </tbody>

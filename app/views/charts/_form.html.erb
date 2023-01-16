@@ -16,30 +16,26 @@
       <b>Updated on</b>
       <%= f.date_field :t_date, class:"form-control form-control-sm border-primary" %>
     </div>
-  </div><br>
-
-  <div class="row">
-    <div class="col col-md-3">
-      <b>Acupuncture针灸</b>
-      <%= f.text_field :aq_list, class:"form-control form-control-sm border-primary" %>
-    </div>
-    <div class="col col-md-3">
-      <b>Medicines中药</b>
-      <%= f.text_field :c_med_list, class:"form-control form-control-sm border-primary" %>
-    </div>
-    <div class="col col-md-3">
-      <b>Formulae方剂</b>
-      <%= f.text_field :c_for_list, class:"form-control form-control-sm border-primary" %>
-    </div>
-    <div class="col col-md-3">
-      <b>Other 其它治疗</b>
-      <%= f.text_field :o_treats, class:"form-control form-control-sm border-primary" %>
-    </div>
-  </div><br>
-
+  </div>
+  <br>
   <div class="col">
-    <b>S.O.A.P.</br>
-    <%= f.text_area :soap, class:"form-control form-control-sm border-primary", style:"height: 100px" %>
+    <b>Subjective</b>
+    <%= f.text_area :subj, class:"form-control form-control-sm border-primary", style:"height: 50px" %>
+  </div>
+  <br>
+  <div class="col">
+    <b>Objective</b>
+    <%= f.text_area :obj, class:"form-control form-control-sm border-primary", style:"height: 50px" %>
+  </div>
+  <br>
+  <div class="col">
+    <b>Assessment</b>
+    <%= f.text_area :assess, class:"form-control form-control-sm border-primary", style:"height: 50px" %>
+  </div>
+  <br>
+  <div class="col">
+    <b>Plan</b>
+    <%= f.text_area :plan, class:"form-control form-control-sm border-primary", style:"height: 50px" %>
   </div>
   <br>
   <div class="btn-group" role="group">

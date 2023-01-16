@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_183632) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_15_225432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,11 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_183632) do
 
   create_table "charts", force: :cascade do |t|
     t.date "t_date"
-    t.string "aq_list"
-    t.string "c_med_list"
-    t.string "c_for_list"
+    t.text "obj"
+    t.text "assess"
+    t.text "plan"
     t.string "o_treats"
-    t.text "soap"
+    t.text "subj"
     t.bigint "regi_id", null: false
     t.datetime "created_at", precision: 0, null: false
     t.datetime "updated_at", precision: 0, null: false
