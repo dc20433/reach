@@ -42,26 +42,31 @@
             <table class="table table-sm table-striped table-hover mx-auto mt-1" style="max-width: 800px">
               <thead class="table-primary">
                 <tr>
-                  <th>Total</th>
+                  <th>Patients</th>
                   <th>Male</th>
                   <th>Female</th>
                   <th>Other</th>
+                  <th>Records</th>
+                  <th>Charts</th>
+                  <th>Filing</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr class="col">
                   <td class="align-middle"><%= Regi.count %></td>
                   <td class="align-middle"><%= Regi.where(gender: "Male").count %></td>
                   <td class="align-middle"><%= Regi.where(gender: "Female").count %></td>
                   <td class="align-middle"><%= Regi.where(gender: "Other").count %></td>
+                  <td class="align-middle"><%= Patient.count %></td>
+                  <td class="align-middle"><%= Chart.count %></td>
+                  <td class="align-middle"><%= Filing.count %></td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
-
-<b>Total Patients: </b><%= Regi.count%>
-
   

@@ -4,7 +4,7 @@
   class="screen"
   style="background-image: url(<%= asset_path 'pine_trees.jpg' %> );">
   <div class="color-overlay d-flex justify-content-center">    
-    <div class="card mt-3 mx-auto border-primary" style="width: 48rem;">
+    <div class="card mt-3 mx-auto border-primary" style="width: 45rem;">
         <div class="card shadow border-dark">
           <div class="card-header">
             <h2 class="card-title text-center">Patient Listing</h2>
@@ -19,7 +19,7 @@
                 <tr>
                   <th>Last Name</th>
                   <th>First Name</th>
-                  <th>M. Initial</th>
+                  <th>M. Init</th>
                   <th>Gender</th>
                   <th>Date of Birth</th>
                   <th style="width:202px"></th>
@@ -35,7 +35,7 @@
                 <td><%= regi.dob %></td>                
                 <td>
                 <%= link_to 'Records', regi_patients_path(regi.id), class: "btn btn-outline-primary btn-sm rounded-pill" %>
-                <%= link_to 'Charts', regi_charts_path(regi.id), class: "btn btn-outline-success btn-sm rounded-pill" %>
+                <%= link_to 'Charts', regi_charts_path(regi.id), class: "btn btn-outline-info btn-sm rounded-pill" %>
                 <%= link_to 'Files', regi_filings_path(regi.id), class: "btn btn-outline-success btn-sm ps-3 pe-3 rounded-pill" %>
                 </td>
               </tr>
