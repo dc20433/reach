@@ -1,6 +1,6 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
 
-  <h1 class="text-center">Patient charts</h1>
+  <h1 class="text-center">Patient Charts</h1>
   <%= render 'layouts/identifier' %>
 
   <%= link_to 'New Chart', new_regi_chart_path, class: "btn btn-sm btn-outline-dark m-1 rounded-pill" %>
@@ -11,10 +11,10 @@
     <thead class="table-info">
       <tr>
         <th style="width:105px">Dated on</th>
-        <th style="width:30vw">Subjective</th>
+        <th style="width:25vw">Subjective</th>
         <th style="width:18vw">Objective</th>
         <th style="width:12vw">Assessment</th>
-        <th style="width:30vw">Plan</th>
+        <th style="width:35vw">Plan</th>
       </tr>
     </thead>
     </tbody>
