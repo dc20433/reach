@@ -19,17 +19,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to users_path, notice: "#{@user.email}s successfully signed up."
+      redirect_to users_path, notice: "#{@user.email}s successfully signed up..."
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "Sign up unsuccessful..."
     end
   end
 
   def update
     if User.find(id=params[:id]).update user_params
-      redirect_to users_path, notice: "User updated."
+      redirect_to users_path, notice: "User updated..."
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity, notice: "Update unsuccessful..."
     end
   end
 

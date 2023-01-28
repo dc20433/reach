@@ -47,7 +47,7 @@
                   <th>Other</th>
                   <th>Records</th>
                   <th>Charts</th>
-                  <th>Filing</th>
+                  <th>Files</th>
                 </tr>
               </thead>
               <tbody>
@@ -55,7 +55,7 @@
                   <td class="align-middle"><%= Regi.count %></td>
                   <td class="align-middle"><%= Regi.where(gender: "Male").count %></td>
                   <td class="align-middle"><%= Regi.where(gender: "Female").count %></td>
-                  <td class="align-middle"><%= Regi.where(gender: "Other").count %></td>
+                  <td class="align-middle"><%= Regi.count - Regi.where(gender: "Male").count - Regi.where(gender: "Female").count %></td>
                   <td class="align-middle"><%= Patient.count %></td>
                   <td class="align-middle"><%= Chart.count %></td>
                   <td class="align-middle"><%= Filing.count %></td>
