@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get 'print' => 'regis#print'
   get 'consent' => 'sites#consent'
   get 'insurance' => 'sites#insurance'
   
