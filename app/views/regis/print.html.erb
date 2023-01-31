@@ -3,6 +3,7 @@
   <table class="table table-sm table-striped table-hover mx-auto mt-1;" style="width: 45rem;">
   <button onclick="window.print()", class="btn btn-sm btn-outline-dark mb-3 ps-3 pe-3 rounded-pill">Print Entire Patient List ... </button>
   <%= link_to "Back to Patients", regis_path, class: "btn btn-sm btn-outline-success mb-3 ms-2 ps-3 pe-3 rounded-pill" %>
+  <h2 class="text-center">Patient List Printed on <%= (Time.zone.now() - 5*3600).strftime("%Y-%m-%d %H:%M") %></h2>
     <thead class="table-primary">
       <tr>
         <th>Last Name</th>
@@ -16,7 +17,7 @@
   <% @regis.order('last_name ASC').each do |regi| %>
 
     <tr>
-      <td><%= link_to regi.last_name, regi_path(regi.id) %></td>
+      <td><%= regi.last_name %></td>
       <td><%= regi.first_name %></td>
       <td><%= regi.init %></td>
       <td><%= regi.gender %></td>

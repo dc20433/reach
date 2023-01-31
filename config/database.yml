@@ -19,16 +19,13 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: postgres
-  password: 11Danielz$#@!
-
-
+  
 development:
   <<: *default
   database: aq1_development
   host: localhost
-  username: postgres
-  password: 11Danielz$#@!
+  username: <%= ENV["PG_UN"] %>
+  password: <%= ENV["PG_PW"] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -64,8 +61,8 @@ test:
   <<: *default
   database: aq1_test
   host: localhost
-  username: postgres
-  password: 11Danielz$#@!
+  username: <%= ENV["PG_UN"] %>
+  password: <%= ENV["PG_PW"] %>
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -98,11 +95,3 @@ production:
     password: <%= ENV['RDS_PASSWORD'] %>
     host: <%= ENV['RDS_HOSTNAME'] %>
     port: <%= ENV['RDS_PORT'] %>
-
-#  database: aq1_production
-#   username:    postgres
-#   password:    tq9RgWIGnyWwJWX
-#   host:    aq1-db.internal
-#   proxy port:  5432
-#   postgres port:  5433
-#   Connection string: postgres://postgres:tq9RgWIGnyWwJWX@aqdeployapp-db.internal:5432
