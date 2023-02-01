@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-primary pt-1 pb-1">
+<nav class="navbar navbar-expand navbar-dark fixed-top bg-primary pt-1 pb-1">
   <div class="container-fluid">
     <%= link_to "Home", root_path, class:"navbar-brand fw-bold" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,8 +14,8 @@
 
         <% if current_user %>
           <li class="nav-item">
-            <%# link_to "|log out|", reset_path, class:"nav-link active" %>
-            <%= link_to "Log out", destroy_user_session_path, class:"nav-link text-dark fw-bold bg-info rounded-pill", data: { turbo_method: :delete } %>
+            <%# button_to "Log out", destroy_user_session_path, class:"nav-link text-dark fw-bold bg-info rounded-pill", data: { turbo_method: :delete } %>
+            <%= button_to 'Log out', destroy_user_session_path, class:"nav-link text-dark fw-bold bg-info rounded-pill", :method => :delete %>
             <%# link_to "|Log out|", destroy_user_session_path, class:"nav-link active", method: :delete %>
           </li>
         <% else %>
@@ -25,25 +25,35 @@
         <% end %>  
 
         <% if (current_user && current_user.Admin?) || (current_user && current_user.Manager?)  %>
+          <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle text-dark ms-1 fw-bold bg-info rounded-pill border border-dark border-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Overviews
+            </div>
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+              <%= link_to "List of Patients", prints_pregi_path, class:"dropdown-item" %>
+              <%= link_to "Charts by Patient", prints_pchart_patient_path, class:"dropdown-item" %>
+              <%= link_to "Charts by Date", prints_pchart_date_path, class:"dropdown-item" %>
+              <%= link_to "Patient Info", prints_ppatient_path, class:"dropdown-item" %>
+            </div>
+          </li>
           <li class="nav-item">
-            <%= link_to "Patients", regis_path, class:"nav-link text-dark fw-bold bg-info rounded-pill" %>
+            <%= link_to "Patients", regis_path, class:"nav-link text-dark ms-1 fw-bold bg-info rounded-pill border border-dark border-2" %>
           </li>
         <% end %>
 
         <% if current_user && current_user.Admin? %>
           <li class="nav-item">
-            <%= link_to "Users", users_path, class:"nav-link text-dark fw-bold bg-info rounded-pill" %>
+            <%= link_to "Users", users_path, class:"nav-link text-dark ms-1 fw-bold bg-info rounded-pill border border-dark border-2" %>
           </li> 
           <li class="nav-item">
             <%# link_to "Sign up", new_user_registration_path, class:"nav-link text-dark fw-bold bg-info rounded-pill" %>
           </li>
         <% end %>
-      </ul>
 
+      </ul>
 
       <li class="d-flex">
         <% if current_user %>
-          <p class="text-dark fw-bold bg-info mt-1 mb-1 p-3 pt-1 pb-1 rounded-pill"><%= current_user.email %> : <%= current_user.role %></p>
+          <p class="text-dark fw-bold bg-info mt-1 mb-1 p-3 pt-1 pb-1 rounded-pill border border-dark border-2"><%= current_user.email %> : <%= current_user.role %></p>
         <% end %>
       </li>
     </div>
