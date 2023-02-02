@@ -26,7 +26,7 @@
                   <th style="width:220px"></th>
                 </tr>
               </thead>
-            <% @regis.order('last_name ASC').each do |regi| %>
+            <% @regis.order("last_name, first_name").each do |regi| %>
 
               <tr>
                 <td><%= link_to regi.last_name, regi_path(regi.id) %></td>

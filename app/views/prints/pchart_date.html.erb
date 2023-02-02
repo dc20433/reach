@@ -8,7 +8,7 @@
   <table class="table table-sm table-striped table-hover mt-1">
     <thead class="table-info">
       <tr>
-        <th>Date</th>
+        <th style="width:90px">Date</th>
         <th>Name</th>
         <th>Subjective</th>
         <th>Objective</th>
@@ -18,7 +18,7 @@
     </thead>
     </tbody>
         <% @d = 0 %>
-        <% Chart.joins(:regi).order("t_date DESC, last_name ASC").each do |chart| %>
+        <% Chart.joins(:regi).order("t_date DESC, last_name, first_name").each do |chart| %>
             <tr style="height:15px">
             <% @d != chart.t_date ? show_date = chart.t_date : show_date = " " %>
             <td><%= show_date %></td>

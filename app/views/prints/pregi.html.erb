@@ -15,7 +15,7 @@
         <th style="width:120px">Date of Birth</th>
       </tr>
     </thead>
-  <% @regis.order('last_name ASC').each do |regi| %>
+  <% @regis.order("last_name, first_name").each do |regi| %>
 
     <tr>
       <td><%= regi.last_name %></td>
