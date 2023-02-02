@@ -9,7 +9,7 @@
     <thead class="table-success">
     <tr style="height:13px">
         <th>Name</th>
-        <th>Date</th>
+        <th style="width:115px">Date</th>
         <th>Contact Info</th>
         <th>Weight</th>
         <th>Complaints</th>
@@ -21,9 +21,9 @@
     </thead>
     </tbody>
       <% @n = 0 %>
-      <% Patient.order("regi_id ASC, v_date DESC").each do |patient| %>
+      <% Patient.joins(:regi).order("last_name ASC, v_date DESC").each do |patient| %>
         <tr style="height:15px">
-        <% @n != patient.regi_id ? show_name = Regi.where(id: patient.regi_id).pluck(:last_name).to_sentence + ", " + Regi.where(id: patient.regi_id).pluck(:first_name).to_sentence : show_name = " " %>
+        <% @n != patient.regi_id ? show_name = Regi.where(id: patient.regi_id).pluck(:last_name).to_sentence + ", " + Regi.where(id: patient.regi_id).pluck(:first_name).to_sentence + " " + Regi.where(id: patient.regi_id).pluck(:init).to_sentence : show_name = " " %>
           <td><%= show_name %></td>
             <% @n=patient.regi_id %>
           <td><%= patient.v_date %></td>
