@@ -1,6 +1,6 @@
 class PrintsController < ApplicationController
   def pregi
-    @regis = Regi.all
+    @p_regi = Regi.all
   end
 
   def pchart_date

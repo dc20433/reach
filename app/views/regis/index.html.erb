@@ -13,7 +13,7 @@
 
             <%= link_to "New Patient", new_regi_path, class: "btn btn-sm btn-outline-dark ps-3 pe-3 rounded-pill" %>
             <%= render 'search' %>
-            <%= link_to "Print", print_path, class: "btn btn-sm btn-outline-success ps-3 pe-3 rounded-pill" %>
+            <%# link_to "Print", print_path, class: "btn btn-sm btn-outline-success ps-3 pe-3 rounded-pill" %>
             <table class="table table-sm table-striped table-hover mx-auto mt-1">
               <thead class="table-primary">
                 <tr>
@@ -26,7 +26,7 @@
                   <th style="width:220px"></th>
                 </tr>
               </thead>
-            <% @regis.order("last_name, first_name").each do |regi| %>
+            <% @regis.each do |regi| %>
 
               <tr>
                 <td><%= link_to regi.last_name, regi_path(regi.id) %></td>
