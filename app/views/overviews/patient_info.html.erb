@@ -1,14 +1,15 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
-  <h1 class="text-center">Patient Records</h1>
-  <%= render 'layouts/identifier' %>
-  <%= link_to 'New Record', new_regi_patient_path, class:'btn btn-sm btn-outline-dark m-1 rounded-pill' %>
-  <%= link_to 'Patient Charts', regi_charts_path, class:"btn btn-sm btn-outline-primary m-1 rounded-pill" %>
-  <%= link_to 'Patient Files', regi_filings_path, class:"btn btn-sm btn-outline-info m-1 rounded-pill" %>
+  
+  <h2 class="text-center">Patient Information as of <%= (Time.zone.now() - 5*3600).strftime("%Y-%m-%d %H:%M") %></h2>
+
+  <button onclick="window.print()", class="btn btn-sm btn-outline-success ps-3 pe-3 rounded-pill" >Print This Page</button>
+  <%= link_to 'Back to Patients', regis_path, class:"btn btn-sm btn-outline-secondary m-1 rounded-pill" %>
 
   <table class="table table-sm table-striped table-hover mt-1">
     <thead class="table-success">
-    <tr>
-        <th style="width:105px">Dated on</th>
+    <tr style="height:13px">
+        <th>Name</th>
+        <th style="width:115px">Date</th>
         <th>Contact Info</th>
         <th>Weight</th>
         <th>Complaints</th>
@@ -19,12 +20,13 @@
       </tr>
     </thead>
     </tbody>
-
-      <% @regi.patients.order('v_date DESC').each do |patient| %>
-        <tr>
-          <td>
-            <%= link_to patient.v_date, regi_patient_path(@regi,patient) %>
-          </td>  
+      <% @name = 0 %>
+      <% Patient.joins(:regi).order("last_name, first_name, init, v_date DESC").each do |patient| %>
+        <tr style="height:15px">
+        <% @name != patient.regi_id ? show_name = Regi.where(id: patient.regi_id).pluck(:last_name).to_sentence + ", " + Regi.where(id: patient.regi_id).pluck(:first_name).to_sentence + " " + Regi.where(id: patient.regi_id).pluck(:init).to_sentence : show_name = " " %>
+          <td><%= show_name %></td>
+            <% @name=patient.regi_id %>
+          <td><%= patient.v_date %></td>
           <td>
             <%= patient.street %><%= ', ' if patient.street? %>
             <%= patient.city %>
@@ -35,9 +37,7 @@
             <%= 'Work:' if patient.work? %><%= patient.work %>
             <%= 'Email:' if patient.email? %><%= patient.email %>
           </td>
-          <td>
-            <%= patient.weight %>
-          </td>
+          <td><%= patient.weight %></td>
           <td>
             <%= '1.' if patient.com1? %>
             <%= patient.com1 %><%= ' 2.' if patient.com2? %>
