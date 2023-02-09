@@ -32,18 +32,18 @@
             <%= patient.city %>
             <%= patient.state %>
             <%= patient.zip %>
-            <%= 'C:' if patient.cell? %><%= patient.cell %>
-            <%= 'H:' if patient.home? %><%= patient.home %>
-            <%= 'W:' if patient.work? %><%= patient.work %>
-            <%= 'E:' if patient.email? %><%= patient.email %>
+            <%= 'Cell:' if patient.cell? %><%= patient.cell %>
+            <%= 'Home:' if patient.home? %><%= patient.home %>
+            <%= 'Work:' if patient.work? %><%= patient.work %>
+            <%= 'Email:' if patient.email? %><%= patient.email %>
           </td>
           <td>
             <%= patient.weight %>
           </td>
           <td>
             <%= '1.' if patient.com1? %>
-            <%= patient.com1 %><%= ', 2.' if patient.com2? %>
-            <%= patient.com2 %><%= ', 3.' if patient.com3? %>
+            <%= patient.com1 %><%= ' 2.' if patient.com2? %>
+            <%= patient.com2 %><%= ' 3.' if patient.com3? %>
             <%= patient.com3 %>
           </td>
           <td>
