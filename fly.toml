@@ -1,6 +1,6 @@
-# fly.toml file generated for aq2 on 2022-12-13T14:47:36-05:00
+# fly.toml file generated for reach2 on 2023-02-09T20:38:48-05:00
 
-app = "aq2"
+app = "reach2"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -17,7 +17,6 @@ processes = []
   PORT = "8080"
 
 [experimental]
-  allowed_public_ports = []
   auto_rollback = true
 
 [[services]]
@@ -49,8 +48,3 @@ processes = []
 [[statics]]
   guest_path = "/app/public"
   url_prefix = "/"
-
-[mounts]
-  source="aq2_data"
-  destination="/data"
-

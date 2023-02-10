@@ -23,7 +23,7 @@ FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
 LABEL fly_launch_runtime="rails"
 
-ARG NODE_VERSION=18.12.1
+ARG NODE_VERSION=16.17.1
 ARG YARN_VERSION=1.22.19
 ARG BUNDLER_VERSION=2.3.24
 
@@ -115,6 +115,7 @@ COPY . .
 # Adjust binstubs to run on Linux and set current working directory
 RUN chmod +x /app/bin/* && \
     sed -i 's/ruby.exe\r*/ruby/' /app/bin/* && \
+    sed -i 's/ruby\r*/ruby/' /app/bin/* && \
     sed -i '/^#!/aDir.chdir File.expand_path("..", __dir__)' /app/bin/*
 
 # The following enable assets to precompile on the build server.  Adjust
