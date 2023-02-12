@@ -100,6 +100,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.0.13)
+      rails
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -259,10 +261,11 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bootstrap (~> 5.2.2)
+  bootstrap (~> 5.2.3)
   capybara
   debug
   devise
+  dockerfile-rails (>= 1.0)
   dotenv-rails
   image_processing (~> 1.2)
   importmap-rails

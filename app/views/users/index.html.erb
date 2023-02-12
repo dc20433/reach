@@ -20,7 +20,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @users.order('role ASC', 'current_sign_in_at DESC').each do |user| %>
+                <% @users.order('role, email', 'current_sign_in_at DESC').each do |user| %>
                 <tr>
                   <td><%= link_to_unless_current user.email, user_path(user.id) %></td>
                   <td><%= user.role %></td>
