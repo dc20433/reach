@@ -1,6 +1,6 @@
-# fly.toml file generated for reach4 on 2023-02-09T22:28:14-05:00
+# fly.toml file generated for reach6 on 2023-02-17T10:23:13-05:00
 
-app = "reach4"
+app = "reach6"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
