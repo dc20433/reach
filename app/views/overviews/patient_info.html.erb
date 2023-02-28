@@ -9,6 +9,7 @@
     <thead class="table-success">
     <tr style="height:13px">
         <th>Name</th>
+        <th>Name2</th>
         <th style="width:115px">Date Entered</th>
         <th>Contact Info</th>
         <th>Weight</th>
@@ -27,6 +28,7 @@
         <%= @name != patient.regi_id ? Regi.where(id: patient.regi_id).pluck(:last_name).to_sentence + ", " + Regi.where(id: patient.regi_id).pluck(:first_name).to_sentence + " " + Regi.where(id: patient.regi_id).pluck(:init).to_sentence : " " %>
         </td>
             <% @name=patient.regi_id %>
+          <td><%= patient.name %></td>
           <td><%= patient.v_date %></td>
           <td>
             <%= patient.street %><%= ', ' if patient.street? %>
@@ -40,9 +42,9 @@
           </td>
           <td><%= patient.weight %></td>
           <td>
-            <%= 'I.' if patient.com1? %>
-            <%= patient.com1 %><%= ' II.' if patient.com2? %>
-            <%= patient.com2 %><%= ' III.' if patient.com3? %>
+            <%= '1.' if patient.com1? %>
+            <%= patient.com1 %><%= ' 2.' if patient.com2? %>
+            <%= patient.com2 %><%= ' 3.' if patient.com3? %>
             <%= patient.com3 %>
           </td>
           <td>
