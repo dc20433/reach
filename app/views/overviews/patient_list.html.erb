@@ -1,6 +1,6 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
 
-  <h2 class="text-center">Patient List as of <%= (Time.zone.now() - 5*3600).strftime("%Y-%m-%d %H:%M") %></h2>
+  <h2 class="text-center">Patient List as of <%= (Time.zone.now() - 4*3600).strftime("%Y-%m-%d %H:%M") %></h2>
   
   <table class="table table-sm table-striped table-hover mx-auto mt-1;" style="width: 45rem;">
   <button onclick="window.print()", class="btn btn-sm btn-outline-dark mb-3 ps-3 pe-3 rounded-pill">Print Entire Patient List ... </button>
