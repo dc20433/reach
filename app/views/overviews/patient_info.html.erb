@@ -1,6 +1,6 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
   
-  <h2 class="text-center">Patient Information as of <%= (Time.zone.now() - 4*3600).strftime("%Y-%m-%d %H:%M") %></h2>
+  <h2 class="text-center">Patient Information as of <%= Time.now.strftime("%Y-%m-%d %H:%M") %></h2>
 
   <button onclick="window.print()", class="btn btn-sm btn-outline-success ps-3 pe-3 rounded-pill" >Print This Page</button>
 
@@ -40,9 +40,9 @@
           <td><%= patient.weight %></td>
           <td>
             <%= '1.' if patient.com1? %>
-            <%= patient.com1 %><%= '; 2.' if patient.com2? %>
-            <%= patient.com2 %><%= '; 3.' if patient.com3? %>
-            <%= patient.com3 %>
+            <%= patient.com1.strip %><%= '; 2.' if patient.com2? %>
+            <%= patient.com2.strip %><%= '; 3.' if patient.com3? %>
+            <%= patient.com3.strip %>
           </td>
           <td>
             <%= patient.d_onset %><%= '/Pain: ' if patient.pain_scale? %>
