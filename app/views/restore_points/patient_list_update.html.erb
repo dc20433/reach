@@ -19,8 +19,8 @@
   <% @patient_list_update.each do |regi| %>
 
     <tr>
-      <td><%= (regi.updated_at - 4*3600).strftime("%y-%m-%d %H:%m") %></td>
-      <td><%= (regi.created_at - 4*3600).strftime("%y-%m-%d") %></td>
+      <td><%= regi.updated_at.in_time_zone("America/New_York").strftime("%y-%m-%d %H:%m") %></td>
+      <td><%= regi.created_at.in_time_zone("America/New_York").strftime("%y-%m-%d") %></td>
       <td><%= link_to regi.last_name, regi_path(regi.id) %></td>
       <td><%= regi.first_name %></td>
       <td><%= regi.init? ? regi.init + "." : "" %></td>
