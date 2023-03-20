@@ -1,4 +1,4 @@
-<% @age = @regi.dob? ? ((Time.now - @regi.dob.to_time) / 1.year.seconds).floor : "<No data>" %>
+<% @age = @regi.dob? ? ((Time.now.in_time_zone("America/New_York") - @regi.dob.to_time) / 1.year.seconds).floor : "<No data>" %>
 
 <% @gender = @regi.gender? ? @regi.gender : "<No gender data>" %>
 

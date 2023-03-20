@@ -1,6 +1,6 @@
 <% if (current_user && current_user.Manager?) || (current_user && current_user.Admin?) %>
 
-  <h2 class="text-center">Patient List Updated as of <%= Time.now.strftime("%Y-%m-%d %H:%M") %></h2>
+  <h2 class="text-center">Patient List Updated as of <%= Time.now.in_time_zone("America/New_York").strftime("%Y-%m-%d %H:%M") %></h2>
   <p class="text-center"><button onclick="window.print()", class="btn btn-sm btn-outline-dark mb-3 ps-3 pe-3 rounded-pill">Print Entire Patient List ... </button></p>
   
   <table class="table table-sm table-striped table-hover mx-auto mt-1;" style="width: 48rem;">
@@ -25,7 +25,7 @@
       <td><%= regi.first_name %></td>
       <td><%= regi.init? ? regi.init + "." : "" %></td>
       <td><%= regi.gender %></td>
-      <td><%= regi.dob? ? ((Time.now - regi.dob.to_time) / 1.year.seconds).floor : " " %></td>
+      <td><%= regi.dob? ? ((Time.now.in_time_zone("America/New_York") - regi.dob.to_time) / 1.year.seconds).floor : " " %></td>
       <td><%= regi.dob %></td>                
     </tr>
     <% end %>
