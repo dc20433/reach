@@ -23,7 +23,7 @@
         <% regi_id = Regi.where(id: chart.regi_id).pluck(:id).to_sentence %>
         <td><%= link_to show_name, regi_charts_path(regi_id) %></td>
         <% @name = chart.regi_id %>
-        <td><%= chart.t_date %></td>
+        <td><%= link_to chart.t_date, regi_chart_path(chart.regi_id, chart) %></td>
         <td><%= chart.subj %></td>
         <td><%= chart.obj %></td>
         <td><%= chart.assess %></td>

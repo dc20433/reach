@@ -17,7 +17,7 @@
   <% @patient_list.each do |regi| %>
 
     <tr>
-      <td><%= regi.last_name %></td>
+      <td><%= link_to regi.last_name, regi_path(regi.id) %></td>
       <td><%= regi.first_name %></td>
       <td><%= regi.init? ? regi.init + "." : "" %></td>
       <td><%= regi.gender %></td>
