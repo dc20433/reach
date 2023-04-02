@@ -23,11 +23,11 @@
       <% Patient.joins(:regi).order("last_name, first_name, init, dob, v_date DESC").each do |patient| %>
         <tr style="height:15px">
         <td>
-        <% @name != patient.regi_id ? show_name = Regi.find(id=patient.regi_id).last_name + ", " + Regi.find(id=patient.regi_id).first_name + " " + Regi.find(id=patient.regi_id).init : show_name = " " %>
+        <% @prefix = Regi.find(id=patient.regi_id) %>
+        <% @name != patient.regi_id ? show_name = @prefix.last_name + ", " + @prefix.first_name + " " + @prefix.init : show_name = " " %>
         <%= link_to show_name, regi_patient_path(patient.regi_id, patient) %>
         </td>
           <td>
-          <%# link_to patient.v_date, regi_patient_path(patient.regi_id, patient) %>
           <%= patient.v_date %>
           </td>
           <td>

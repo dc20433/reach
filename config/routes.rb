@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   get 'overviews/chart_name'
   get 'overviews/patient_info'
   get 'overviews/patient_list'
-  get 'restore_points/patient_list_update'
-  get 'restore_points/patient_charts_update'
-  get 'restore_points/patient_info_update'
+  # get 'restore_points/patient_list_update'
+  # get 'restore_points/patient_charts_update'
+  # get 'restore_points/patient_info_update'
   get 'consent' => 'sites#consent'
   get 'insurance' => 'sites#insurance'
   

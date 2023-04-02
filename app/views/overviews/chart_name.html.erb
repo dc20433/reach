@@ -19,7 +19,8 @@
       <% @name = 0 %>
       <% Chart.joins(:regi).order("last_name, first_name, init, dob, t_date DESC").each do |chart| %>
         <tr style="height:15px">
-        <% @name != chart.regi_id ? show_name = Regi.find(id=chart.regi_id).last_name + ", " + Regi.find(id=chart.regi_id).first_name + " " + Regi.find(id=chart.regi_id).init : show_name = " " %>
+        <% @prefix = Regi.find(id=chart.regi_id) %>
+        <% @name != chart.regi_id ? show_name = @prefix.last_name + ", " + @prefix.first_name + " " + @prefix.init : show_name = " " %>
         <% regi_id = Regi.where(id: chart.regi_id).pluck(:id).to_sentence %>
         <td><%= link_to show_name, regi_charts_path(regi_id) %></td>
         <% @name = chart.regi_id %>
